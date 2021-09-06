@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:ecommerce_app_isaatech/components/blur_container.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
+import 'package:ecommerce_app_isaatech/screens/login.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  void _navigateToNext() async {
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).pushNamed(LoginScreen.id);
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _navigateToNext();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.cover,
             )),
           ),
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 2.0,
-              sigmaY: 2.0,
-            ),
-            child: Container(
-              color: Colors.transparent,
-            ),
+          BlurContainer(
+            value: 2,
           ),
           Center(
             child: ClipRRect(
