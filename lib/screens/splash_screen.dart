@@ -14,6 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.all(8),
         child: Image.asset(
           Images.loginBg,
           fit: BoxFit.cover,
