@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:ecommerce_app_isaatech/components/blur_container.dart';
 import 'package:ecommerce_app_isaatech/components/buttons.dart';
-import 'package:ecommerce_app_isaatech/components/social_icon_buttons_row.dart';
 import 'package:ecommerce_app_isaatech/components/textfields.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
+import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
 import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -94,7 +94,9 @@ class _LoginScreenState extends State<LoginScreen>
                   ],
                 ),
                 const Spacer(),
-                buildSignInGradientButtonRow(context, 'Sign In', () {}),
+                buildSignInGradientButtonRow(context, 'Sign In', () {
+                  Navigator.of(context).pushNamed(HomeScreen.id);
+                }),
                 const Spacer(),
                 RichText(
                   text: TextSpan(children: [

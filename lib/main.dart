@@ -1,8 +1,9 @@
+import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
 import 'package:ecommerce_app_isaatech/screens/login.dart';
 import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:ecommerce_app_isaatech/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const EcommerceAppIsaatech());
@@ -19,13 +20,22 @@ class EcommerceAppIsaatech extends StatelessWidget {
       title: 'Isaatech Ecommerce',
       theme: ThemeData(
         fontFamily: 'Gilroy',
-        primarySwatch: Colors.blue,
-        appBarTheme:
-            const AppBarTheme(elevation: 0, backgroundColor: Colors.white),
+        primarySwatch: Colors.purple,
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          centerTitle: false,
+          titleTextStyle: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(fontWeight: FontWeight.bold),
+          backgroundColor: Colors.transparent,
+          iconTheme: IconThemeData(
+              color: Theme.of(context).colorScheme.onSurface, size: 18),
+        ),
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
-          primary: Color(0xFF999CF4),
-          primaryVariant: Color(0xFF6569C0),
+          primary: Color(0xFF0F1327),
+          primaryVariant: Color(0xFF0F0317),
           secondary: Color(0xFFEFC3FE),
           secondaryVariant: Color(0xFF9F83BE),
           onPrimary: Colors.white,
@@ -42,6 +52,7 @@ class EcommerceAppIsaatech extends StatelessWidget {
         SplashScreen.id: (context) => const SplashScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
         SignUpScreen.id: (context) => const SignUpScreen(),
+        HomeScreen.id: (context) => const HomeScreen(),
       },
     );
   }

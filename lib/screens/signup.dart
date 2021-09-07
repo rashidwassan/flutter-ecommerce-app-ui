@@ -5,8 +5,8 @@ import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/components/social_icon_buttons_row.dart';
 import 'package:ecommerce_app_isaatech/components/textfields.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
+import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -90,7 +90,9 @@ class _SignUpScreenState extends State<SignUpScreen>
                   prefixIcon: CupertinoIcons.phone_fill,
                 ),
                 const Spacer(),
-                buildSignInGradientButtonRow(context, 'Create', () {}),
+                buildSignInGradientButtonRow(context, 'Create', () {
+                  Navigator.of(context).pushNamed(HomeScreen.id);
+                }),
                 const Spacer(),
                 Text('Or create account using social media',
                     style: TextStyle(

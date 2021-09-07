@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:ecommerce_app_isaatech/components/blur_container.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
 import 'package:ecommerce_app_isaatech/screens/login.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -23,7 +20,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _navigateToNext();
   }
