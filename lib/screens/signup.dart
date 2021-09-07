@@ -94,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                 const Spacer(),
                 Text('Or create account using social media',
                     style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 15,
                         color: Theme.of(context).colorScheme.onBackground)),
                 24.heightBox,
                 const SocialIconButtonsRow(),

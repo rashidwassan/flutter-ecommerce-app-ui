@@ -2,6 +2,7 @@ import 'package:ecommerce_app_isaatech/screens/login.dart';
 import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:ecommerce_app_isaatech/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const EcommerceAppIsaatech());
@@ -17,19 +18,20 @@ class EcommerceAppIsaatech extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Isaatech Ecommerce',
       theme: ThemeData(
+        fontFamily: 'Gilroy',
         primarySwatch: Colors.blue,
         appBarTheme:
             const AppBarTheme(elevation: 0, backgroundColor: Colors.white),
-        colorScheme: ColorScheme(
+        colorScheme: const ColorScheme(
           brightness: Brightness.light,
-          primary: const Color(0xFF999CF4),
-          primaryVariant: const Color(0xFF6569C0),
-          secondary: const Color(0xFFEFC3FE),
-          secondaryVariant: Colors.green.shade700,
+          primary: Color(0xFF999CF4),
+          primaryVariant: Color(0xFF6569C0),
+          secondary: Color(0xFFEFC3FE),
+          secondaryVariant: Color(0xFF9F83BE),
           onPrimary: Colors.white,
           surface: Colors.white,
           onSecondary: Colors.white,
-          onSurface: Colors.blue,
+          onSurface: Colors.black87,
           background: Colors.white,
           error: Colors.red,
           onBackground: Colors.black87,
