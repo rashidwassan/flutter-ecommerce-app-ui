@@ -49,6 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(children: [
         Container(
           decoration: const BoxDecoration(
@@ -96,7 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                         fontSize: 17,
                         color: Theme.of(context).colorScheme.onBackground)),
                 24.heightBox,
-                SocialIconButtonsRow(),
+                const SocialIconButtonsRow(),
               ],
             ).p(24),
           ),
