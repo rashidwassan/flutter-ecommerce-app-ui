@@ -24,7 +24,7 @@ Row buildSignInGradientButtonRow(
           ),
         ),
         child: SizedBox(
-          width: 70,
+          width: 65,
           height: 45,
           child: MaterialButton(
             shape: RoundedRectangleBorder(

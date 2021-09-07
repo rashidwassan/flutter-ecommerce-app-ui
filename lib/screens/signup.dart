@@ -78,40 +78,25 @@ class _SignUpScreenState extends State<SignUpScreen>
                   hintText: 'Password',
                   prefixIcon: CupertinoIcons.padlock,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      style: const ButtonStyle(),
-                      child: const Text(
-                        'Forgot your password?',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    24.widthBox,
-                  ],
+                24.heightBox,
+                const PrimaryTextField(
+                  hintText: 'Email address',
+                  prefixIcon: CupertinoIcons.mail_solid,
+                ),
+                24.heightBox,
+                const PrimaryTextField(
+                  hintText: 'Phone',
+                  prefixIcon: CupertinoIcons.phone_fill,
                 ),
                 const Spacer(),
-                buildSignInGradientButtonRow(context, 'Sign In', () {}),
+                buildSignInGradientButtonRow(context, 'Create', () {}),
                 const Spacer(),
-                RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                        text: 'Don\'t have an account?  ',
-                        style: TextStyle(
-                            fontSize: 17,
-                            color: Theme.of(context).colorScheme.onBackground)),
-                    TextSpan(
-                        text: 'Create',
-                        style: TextStyle(
-                            fontSize: 17,
-                            color: Theme.of(context).colorScheme.onBackground,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline),
-                        recognizer: TapGestureRecognizer()..onTap = () {}),
-                  ]),
-                ),
+                Text('Or create account using social media',
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Theme.of(context).colorScheme.onBackground)),
+                24.heightBox,
+                SocialIconButtonsRow(),
               ],
             ).p(24),
           ),

@@ -33,7 +33,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
             prefixIcon: widget.prefixIcon != null
                 ? Icon(
                     widget.prefixIcon,
-                    size: 23,
+                    size: 20,
                     color: Theme.of(context).colorScheme.onBackground,
                   )
                 : const SizedBox.shrink(),
