@@ -22,9 +22,9 @@ class EcommerceAppIsaatech extends StatelessWidget {
             const AppBarTheme(elevation: 0, backgroundColor: Colors.white),
         colorScheme: ColorScheme(
           brightness: Brightness.light,
-          primary: Colors.purple,
-          primaryVariant: Colors.purple.shade700,
-          secondary: Colors.green,
+          primary: const Color(0xFF999CF4),
+          primaryVariant: const Color(0xFF6569C0),
+          secondary: const Color(0xFFEFC3FE),
           secondaryVariant: Colors.green.shade700,
           onPrimary: Colors.white,
           surface: Colors.white,
