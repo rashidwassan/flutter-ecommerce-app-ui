@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_isaatech/screens/login.dart';
+import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:ecommerce_app_isaatech/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,7 @@ class EcommerceAppIsaatech extends StatelessWidget {
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
+        SignUpScreen.id: (context) => const SignUpScreen(),
       },
     );
   }

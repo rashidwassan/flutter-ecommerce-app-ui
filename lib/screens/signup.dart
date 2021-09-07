@@ -5,7 +5,6 @@ import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/components/social_icon_buttons_row.dart';
 import 'package:ecommerce_app_isaatech/components/textfields.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
-import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,15 +13,15 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String id = '/login';
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  static const String id = '/signup';
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
+class _SignUpScreenState extends State<SignUpScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _blurAnimationController;
 
@@ -30,9 +29,9 @@ class _LoginScreenState extends State<LoginScreen>
   void initState() {
     _blurAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 2),
       lowerBound: 0,
-      upperBound: 6,
+      upperBound: 5,
     );
     super.initState();
     _blurAnimationController.forward();
@@ -110,10 +109,7 @@ class _LoginScreenState extends State<LoginScreen>
                             color: Theme.of(context).colorScheme.onBackground,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.of(context).pushNamed(SignUpScreen.id);
-                          }),
+                        recognizer: TapGestureRecognizer()..onTap = () {}),
                   ]),
                 ),
               ],
@@ -128,17 +124,11 @@ class _LoginScreenState extends State<LoginScreen>
     return Column(
       children: [
         Text(
-          'Hello',
+          'Create account',
           softWrap: true,
-          style: TextStyle(
-              fontSize: 85,
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.onBackground),
-        ),
-        Text(
-          'Sign in to your account',
-          softWrap: true,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.headline4!.copyWith(
+              color: Theme.of(context).colorScheme.onBackground,
+              fontWeight: FontWeight.w600),
         ),
       ],
     );

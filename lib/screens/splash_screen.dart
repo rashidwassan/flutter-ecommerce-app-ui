@@ -31,27 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(
-                Images.loginBg,
-              ),
-              fit: BoxFit.cover,
-            )),
-          ),
-          BlurContainer(
-            value: 2,
-          ),
-          Center(
-            child: ClipRRect(
-                    borderRadius: BorderRadius.circular(500),
-                    child: Image.asset(Images.logo))
-                .p(32),
-          )
-        ],
+      body: Center(
+        child: ClipRRect(
+                borderRadius: BorderRadius.circular(500),
+                child: Image.asset(Images.logo))
+            .p(32),
       ),
     );
   }

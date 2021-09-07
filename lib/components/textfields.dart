@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class PrimaryTextField extends StatelessWidget {
-  PrimaryTextField({
+class PrimaryTextField extends StatefulWidget {
+  const PrimaryTextField({
     this.hintText = '',
-    IconData? icon,
+    this.prefixIcon,
     Key? key,
   }) : super(key: key);
-  IconData? icon;
-  String hintText;
+  final IconData? prefixIcon;
+  final String hintText;
+
+  @override
+  State<PrimaryTextField> createState() => _PrimaryTextFieldState();
+}
+
+class _PrimaryTextFieldState extends State<PrimaryTextField> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -16,24 +22,26 @@ class PrimaryTextField extends StatelessWidget {
       elevation: 16,
       shadowColor: Colors.black54,
       child: TextFormField(
+        validator: (v) {},
         controller: null,
         style: Theme.of(context)
             .textTheme
             .bodyText1!
             .copyWith(fontWeight: FontWeight.bold, fontSize: 16),
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 16),
-            prefixIcon: icon != null
+            contentPadding: const EdgeInsets.only(top: 14),
+            prefixIcon: widget.prefixIcon != null
                 ? Icon(
-                    icon,
-                    size: 18,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    widget.prefixIcon,
+                    size: 23,
+                    color: Theme.of(context).colorScheme.onBackground,
                   )
                 : const SizedBox.shrink(),
             border: InputBorder.none,
-            hintText: hintText,
-            hintStyle: Theme.of(context).textTheme.bodyText2),
-      ).px(24),
+            hintText: widget.hintText,
+            hintStyle:
+                const TextStyle(fontSize: 17, fontWeight: FontWeight.normal)),
+      ).px(12).py(2.5),
     );
   }
 }
