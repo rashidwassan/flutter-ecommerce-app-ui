@@ -19,6 +19,7 @@ class EcommerceAppIsaatech extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Isaatech Ecommerce',
       theme: ThemeData(
+        brightness: Brightness.light,
         fontFamily: 'Gilroy',
         primarySwatch: Colors.purple,
         appBarTheme: AppBarTheme(
@@ -30,7 +31,8 @@ class EcommerceAppIsaatech extends StatelessWidget {
               .copyWith(fontWeight: FontWeight.bold),
           backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(
-              color: Theme.of(context).colorScheme.onSurface, size: 18),
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
         colorScheme: const ColorScheme(
           brightness: Brightness.light,

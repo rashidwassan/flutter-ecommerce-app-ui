@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = '/homescreen';
@@ -14,6 +16,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shoes'),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              CupertinoIcons.cart_fill,
+              size: 27,
+            ),
+            onPressed: () {},
+          )
+        ],
       ),
     );
   }

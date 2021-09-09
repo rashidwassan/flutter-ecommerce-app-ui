@@ -5,10 +5,12 @@ class PrimaryTextField extends StatefulWidget {
   const PrimaryTextField({
     this.hintText = '',
     this.prefixIcon,
+    this.isObscure = false,
     Key? key,
   }) : super(key: key);
   final IconData? prefixIcon;
   final String hintText;
+  final bool isObscure;
 
   @override
   State<PrimaryTextField> createState() => _PrimaryTextFieldState();
@@ -23,6 +25,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
       shadowColor: Colors.black54,
       child: TextFormField(
         validator: (v) {},
+        obscureText: widget.isObscure,
         controller: null,
         style: Theme.of(context)
             .textTheme

@@ -29,9 +29,9 @@ class _SignUpScreenState extends State<SignUpScreen>
   void initState() {
     _blurAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 4),
       lowerBound: 0,
-      upperBound: 5,
+      upperBound: 45,
     );
     super.initState();
     _blurAnimationController.forward();
@@ -60,13 +60,14 @@ class _SignUpScreenState extends State<SignUpScreen>
             fit: BoxFit.cover,
           )),
         ),
-        BlurContainer(value: _blurAnimationController.value),
+        BlurContainer(value: 50 - _blurAnimationController.value),
         SafeArea(
           child: Form(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 double.infinity.widthBox,
+                const Spacer(),
                 const Spacer(),
                 _buildTitleText(context),
                 const Spacer(),
@@ -77,6 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                 24.heightBox,
                 const PrimaryTextField(
                   hintText: 'Password',
+                  isObscure: true,
                   prefixIcon: CupertinoIcons.padlock,
                 ),
                 24.heightBox,

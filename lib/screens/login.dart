@@ -77,6 +77,7 @@ class _LoginScreenState extends State<LoginScreen>
                 24.heightBox,
                 const PrimaryTextField(
                   hintText: 'Password',
+                  isObscure: true,
                   prefixIcon: CupertinoIcons.padlock,
                 ),
                 Row(
