@@ -11,6 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_lints: ^1.0.4
   font_awesome_flutter: ^9.1.0
   google_fonts: ^2.1.0
   velocity_x: ^3.3.0
