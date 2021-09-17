@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                 ),
                 const Spacer(),
                 buildSignInGradientButtonRow(context, 'Create', () {
-                  Navigator.of(context).pushNamed(HomeScreen.id);
+                  Navigator.of(context).pushNamed(MainScreen.id);
                 }),
                 const Spacer(),
                 Text('Or create account using social media',

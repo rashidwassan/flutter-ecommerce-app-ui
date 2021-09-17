@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen>
                 ),
                 const Spacer(),
                 buildSignInGradientButtonRow(context, 'Sign In', () {
-                  Navigator.of(context).pushNamed(HomeScreen.id);
+                  Navigator.of(context).pushNamed(MainScreen.id);
                 }),
                 const Spacer(),
                 RichText(

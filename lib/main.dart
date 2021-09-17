@@ -54,7 +54,9 @@ class EcommerceAppIsaatech extends StatelessWidget {
         SplashScreen.id: (context) => const SplashScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
         SignUpScreen.id: (context) => const SignUpScreen(),
-        HomeScreen.id: (context) => const HomeScreen(),
+        MainScreen.id: (context) => MainScreen(
+              child: Container(),
+            ),
       },
     );
   }

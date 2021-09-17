@@ -17,7 +17,7 @@ dependencies:
   velocity_x: ^3.3.0
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
+
   flutter_test:
     sdk: flutter
 
