@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
 import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
 import 'package:ecommerce_app_isaatech/screens/login.dart';
 import 'package:ecommerce_app_isaatech/screens/signup.dart';
@@ -50,14 +51,17 @@ class EcommerceAppIsaatech extends StatelessWidget {
           onError: Colors.white,
         ),
       ),
-      routes: {
-        SplashScreen.id: (context) => const SplashScreen(),
-        LoginScreen.id: (context) => const LoginScreen(),
-        SignUpScreen.id: (context) => const SignUpScreen(),
-        MainScreen.id: (context) => MainScreen(
-              child: Container(),
-            ),
-      },
+      // routes: {
+      //   SplashScreen.id: (context) => const SplashScreen(),
+      //   LoginScreen.id: (context) => const LoginScreen(),
+      //   SignUpScreen.id: (context) => const SignUpScreen(),
+      //   MainScreen.id: (context) => MainScreen(
+      //         child: Container(),
+      //       ),
+      // },
+      home: const MainScreen(
+        child: HomeScreen(),
+      ),
     );
   }
 }

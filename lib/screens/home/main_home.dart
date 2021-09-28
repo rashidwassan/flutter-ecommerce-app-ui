@@ -126,7 +126,7 @@ class _MainScreenState extends State<MainScreen> {
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: RadialGradient(
-                  colors: [Colors.black.withOpacity(0.6), Colors.black87],
+                  colors: [Colors.black.withOpacity(0.4), Colors.black87],
                   center: Alignment.topLeft,
                   radius: 1)),
           child: Icon(

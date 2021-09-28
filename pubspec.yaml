@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_lints: ^1.0.4
+  flutter_svg: ^0.22.0
   font_awesome_flutter: ^9.1.0
   google_fonts: ^2.1.0
   velocity_x: ^3.3.0

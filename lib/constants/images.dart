@@ -7,4 +7,5 @@ class Images {
 
   // icons
   static const String cartIcon = 'assets/icons/cart.png';
+  static const String sneakers = 'assets/icons/sneakers.svg';
 }

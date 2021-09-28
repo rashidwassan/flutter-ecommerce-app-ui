@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -41,4 +42,48 @@ Row buildSignInGradientButtonRow(
       ),
     ],
   );
+}
+
+class PrimaryShadowedButton extends StatelessWidget {
+  const PrimaryShadowedButton(
+      {Key? key,
+      required this.child,
+      required this.onPressed,
+      required this.borderRadius,
+      required this.color})
+      : super(key: key);
+
+  final Widget child;
+  final double borderRadius;
+  final Color color;
+  final Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: 55,
+        margin: const EdgeInsets.all(0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(borderRadius),
+            gradient: const RadialGradient(
+                colors: [Colors.black54, Colors.black],
+                center: Alignment.topLeft,
+                radius: 2),
+            boxShadow: [
+              BoxShadow(
+                  color: color.withOpacity(0.25),
+                  offset: const Offset(3, 2),
+                  spreadRadius: 1,
+                  blurRadius: 8)
+            ]),
+        child: Row(
+          children: [
+            child,
+          ],
+        ),
+      ),
+    );
+  }
 }
