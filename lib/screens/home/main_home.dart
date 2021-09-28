@@ -45,14 +45,7 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.white, Colors.white, Colors.grey.shade200],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
-        child: const HomeScreen(),
-      ),
+      body: const HomeScreen(),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }

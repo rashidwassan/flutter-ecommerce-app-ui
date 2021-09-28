@@ -1,12 +1,40 @@
 import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/components/main_page_product_card.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
+import 'package:ecommerce_app_isaatech/models/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+List<Product> products = [
+  Product(
+      name: 'Air Jordan 1 Mid',
+      brand: 'nike',
+      description:
+          'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
+      price: 115,
+      rating: 5,
+      productImages: [Images.sh1, Images.sh2]),
+  Product(
+      name: 'Air Jordan 1 Mid',
+      brand: 'nike',
+      description:
+          'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
+      price: 115,
+      rating: 5,
+      productImages: [Images.sh1, Images.sh2]),
+  Product(
+      name: 'Air Jordan 1 Mid',
+      brand: 'nike',
+      description:
+          'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
+      price: 115,
+      rating: 5,
+      productImages: [Images.sh1, Images.sh2]),
+];
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,14 +51,62 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         _buildSearchBar(context),
         _buildCategoriesCatalog(context),
-        Expanded(
-            child: PageView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return HomeScreenProductCard();
-                })),
+        _buildProductPageView(),
+        12.heightBox,
+        _buildPopularTitle(),
+        12.heightBox,
+        _buildPopularProductCard(),
       ],
     ).py(16);
+  }
+
+  Widget _buildPopularProductCard() {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 24),
+          ]),
+      child: Row(
+        children: [
+          Container(
+            width: 75,
+            height: 75,
+            decoration: BoxDecoration(
+                color: Colors.blue.shade100,
+                borderRadius: BorderRadius.circular(12)),
+            child: Image.asset(Images.sh2).p(8),
+          )
+        ],
+      ).p(8),
+    ).px(24);
+  }
+
+  Widget _buildPopularTitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        'Most Popular'.text.semiBold.xl2.make(),
+        GestureDetector(
+            onTap: () {}, child: 'View all'.text.underline.semiBold.make()),
+      ],
+    ).px(24);
+  }
+
+  Expanded _buildProductPageView() {
+    return Expanded(
+        child: PageView.builder(
+            controller: PageController(viewportFraction: 0.60, initialPage: 1),
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return HomeScreenProductCard(
+                product: products[index],
+              );
+            }));
   }
 
   SizedBox _buildCategoriesCatalog(BuildContext context) {

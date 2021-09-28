@@ -20,6 +20,7 @@ class EcommerceAppIsaatech extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Isaatech Ecommerce',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.light,
         fontFamily: 'Gilroy',
         primarySwatch: Colors.purple,
