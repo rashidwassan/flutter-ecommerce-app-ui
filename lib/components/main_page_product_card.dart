@@ -96,53 +96,56 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard> {
             ],
           ).px(12),
         ),
-        Container(
-          decoration: BoxDecoration(
-              color: widget.product.colorAccent,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.shade200,
-                    offset: const Offset(0, 12),
-                    spreadRadius: 1,
-                    blurRadius: 12),
-              ],
-              borderRadius: BorderRadius.circular(24)),
-          margin:
-              const EdgeInsets.only(bottom: 145, left: 25, right: 25, top: 24),
-          child: Center(
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Image.asset(widget.product.productImages[0]).p(12),
-                Positioned(
-                  right: 12,
-                  top: 12,
-                  child: SizedBox(
-                    height: 30,
-                    width: 30,
-                    child: TextButton(
-                      style: ButtonStyle(
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.all(0)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(80))),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.pink),
-                          elevation: MaterialStateProperty.all(8),
-                          shadowColor: MaterialStateProperty.all(Colors.pink)),
-                      child: const Center(
-                        child: Icon(
-                          Icons.favorite,
-                          size: 20,
-                          color: Colors.white,
+        AspectRatio(
+          aspectRatio: 1,
+          child: Container(
+            decoration: BoxDecoration(
+                color: widget.product.colorAccent,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade200,
+                      offset: const Offset(0, 12),
+                      spreadRadius: 1,
+                      blurRadius: 12),
+                ],
+                borderRadius: BorderRadius.circular(24)),
+            margin: const EdgeInsets.only(left: 25, right: 25, top: 24),
+            child: Center(
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(widget.product.productImages[0]).p(12),
+                  Positioned(
+                    right: 12,
+                    top: 12,
+                    child: SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: TextButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.all(0)),
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(80))),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.pink),
+                            elevation: MaterialStateProperty.all(8),
+                            shadowColor:
+                                MaterialStateProperty.all(Colors.pink)),
+                        child: const Center(
+                          child: Icon(
+                            Icons.favorite,
+                            size: 20,
+                            color: Colors.white,
+                          ),
                         ),
+                        onPressed: () {},
                       ),
-                      onPressed: () {},
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         )
