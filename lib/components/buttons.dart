@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 Row buildSignInGradientButtonRow(
@@ -85,5 +86,29 @@ class PrimaryShadowedButton extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class RoundedAddButton extends StatelessWidget {
+  const RoundedAddButton({
+    Key? key,
+    this.onPressed,
+  }) : super(key: key);
+
+  final Function()? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+        elevation: 0,
+        padding: const EdgeInsets.all(0),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        child: Icon(
+          FontAwesomeIcons.plus,
+          size: 18,
+          color: Theme.of(context).colorScheme.surface,
+        ).centered(),
+        onPressed: onPressed,
+        color: Colors.black);
   }
 }

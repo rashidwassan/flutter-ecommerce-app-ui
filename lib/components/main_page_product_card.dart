@@ -1,15 +1,18 @@
 import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
+import 'package:ecommerce_app_isaatech/constants/images.dart';
 import 'package:ecommerce_app_isaatech/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreenProductCard extends StatefulWidget {
-  const HomeScreenProductCard({Key? key, required this.product})
+  const HomeScreenProductCard(
+      {Key? key, required this.product, required this.isCurrentInView})
       : super(key: key);
 
   final Product product;
+  final bool isCurrentInView;
 
   @override
   _HomeScreenProductCardState createState() => _HomeScreenProductCardState();
@@ -19,11 +22,10 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.topCenter,
       children: [
         Container(
           padding: const EdgeInsets.all(12),
-          margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
+          margin: const EdgeInsets.only(top: 90, left: 8, right: 8, bottom: 20),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -85,23 +87,65 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard> {
                   SizedBox(
                     height: 35,
                     width: 35,
-                    child: MaterialButton(
-                        padding: const EdgeInsets.all(0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100)),
-                        child: Icon(
-                          FontAwesomeIcons.plus,
-                          size: 18,
-                          color: Theme.of(context).colorScheme.surface,
-                        ).centered(),
-                        onPressed: () {},
-                        color: Colors.black),
+                    child: RoundedAddButton(
+                      onPressed: () {},
+                    ),
                   )
                 ],
               ),
             ],
-          ).p(12),
+          ).px(12),
         ),
+        Container(
+          decoration: BoxDecoration(
+              color: widget.product.colorAccent,
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade200,
+                    offset: const Offset(0, 12),
+                    spreadRadius: 1,
+                    blurRadius: 12),
+              ],
+              borderRadius: BorderRadius.circular(24)),
+          margin:
+              const EdgeInsets.only(bottom: 145, left: 25, right: 25, top: 24),
+          child: Center(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.asset(widget.product.productImages[0]).p(12),
+                Positioned(
+                  right: 12,
+                  top: 12,
+                  child: SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: TextButton(
+                      style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              const EdgeInsets.all(0)),
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(80))),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.pink),
+                          elevation: MaterialStateProperty.all(8),
+                          shadowColor: MaterialStateProperty.all(Colors.pink)),
+                      child: const Center(
+                        child: Icon(
+                          Icons.favorite,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
       ],
     );
   }

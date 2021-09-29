@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/components/main_page_product_card.dart';
+import 'package:ecommerce_app_isaatech/constants/colors.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
 import 'package:ecommerce_app_isaatech/models/product.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,23 +18,26 @@ List<Product> products = [
           'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
       price: 115,
       rating: 5,
+      colorAccent: Colors.red.shade100,
       productImages: [Images.sh1, Images.sh2]),
   Product(
-      name: 'Air Jordan 1 Mid',
+      name: 'Nike High Run',
       brand: 'nike',
       description:
           'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
-      price: 115,
+      price: 235,
       rating: 5,
-      productImages: [Images.sh1, Images.sh2]),
+      colorAccent: Colors.blue.shade200,
+      productImages: [Images.sh2, Images.sh3]),
   Product(
-      name: 'Air Jordan 1 Mid',
-      brand: 'nike',
+      name: 'Random Shoe',
+      brand: 'adidas',
       description:
           'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
-      price: 115,
+      price: 80,
       rating: 5,
-      productImages: [Images.sh1, Images.sh2]),
+      colorAccent: Colors.yellow.shade100,
+      productImages: [Images.sh3, Images.sh2]),
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -45,6 +49,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedCategory = 1;
+  int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -67,9 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.2),
-                spreadRadius: 1,
-                blurRadius: 24),
+                color: Colors.grey.withOpacity(0.3),
+                offset: Offset(0, 50),
+                spreadRadius: 2,
+                blurRadius: 124),
           ]),
       child: Row(
         children: [
@@ -80,7 +86,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.blue.shade100,
                 borderRadius: BorderRadius.circular(12)),
             child: Image.asset(Images.sh2).p(8),
-          )
+          ),
+          12.widthBox,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              'SB Zoom Blazer Low Pro'.text.lg.semiBold.make(),
+              'NIKE'
+                  .toUpperCase()
+                  .text
+                  .semiBold
+                  .color(Colors.grey)
+                  .softWrap(true)
+                  .make()
+                  .py(4),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  '\$80.00'.text.size(14).softWrap(true).make(),
+                  16.widthBox,
+                  const Icon(Icons.star, color: CustomColors.starColor),
+                  4.widthBox,
+                  '(5.0)'.text.medium.softWrap(true).make(),
+                ],
+              ),
+            ],
+          ),
+          const Spacer(),
+          SizedBox(
+            height: 35,
+            width: 35,
+            child: RoundedAddButton(
+              onPressed: () {},
+            ),
+          ),
+          12.widthBox,
         ],
       ).p(8),
     ).px(24);
@@ -101,10 +142,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Expanded(
         child: PageView.builder(
             controller: PageController(viewportFraction: 0.60, initialPage: 1),
+            onPageChanged: (v) {
+              setState(() {
+                _currentPage = v;
+              });
+            },
             itemCount: products.length,
             itemBuilder: (context, index) {
               return HomeScreenProductCard(
                 product: products[index],
+                isCurrentInView: _currentPage == index,
               );
             }));
   }
@@ -170,9 +217,9 @@ class _HomeScreenState extends State<HomeScreen> {
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.25),
+                color: Colors.grey.withOpacity(0.3),
                 spreadRadius: 1,
-                blurRadius: 16)
+                blurRadius: 24)
           ]),
       child: InkWell(
         onTap: () {
@@ -217,10 +264,11 @@ class _HomeScreenState extends State<HomeScreen> {
         16.widthBox,
         SizedBox(
           height: 50,
+          width: 50,
           child: PrimaryShadowedButton(
             onPressed: () {},
-            child: Icon(Icons.settings,
-                    color: Theme.of(context).colorScheme.surface)
+            child: Icon(FontAwesomeIcons.slidersH,
+                    size: 18, color: Theme.of(context).colorScheme.surface)
                 .px(16),
             borderRadius: 12,
             color: Colors.black,

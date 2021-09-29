@@ -1,6 +1,7 @@
 import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MainScreen extends StatefulWidget {
@@ -34,15 +35,20 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.menu_outlined),
+          onPressed: () {},
+        ),
         title: const Text('Shoes'),
         actions: [
           IconButton(
             icon: const Icon(
-              CupertinoIcons.cart_fill,
+              FontAwesomeIcons.shoppingBag,
               size: 27,
             ),
             onPressed: () {},
-          )
+          ),
+          16.widthBox,
         ],
       ),
       body: const HomeScreen(),
