@@ -52,17 +52,15 @@ class EcommerceAppIsaatech extends StatelessWidget {
           onError: Colors.white,
         ),
       ),
-      // routes: {
-      //   SplashScreen.id: (context) => const SplashScreen(),
-      //   LoginScreen.id: (context) => const LoginScreen(),
-      //   SignUpScreen.id: (context) => const SignUpScreen(),
-      //   MainScreen.id: (context) => MainScreen(
-      //         child: Container(),
-      //       ),
-      // },
-      home: const MainScreen(
-        child: HomeScreen(),
-      ),
+      routes: {
+        SplashScreen.id: (context) => const SplashScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        SignUpScreen.id: (context) => const SignUpScreen(),
+        MainScreen.id: (context) => MainScreen(
+              child: Container(),
+            ),
+      },
+      initialRoute: SplashScreen.id,
     );
   }
 }

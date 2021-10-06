@@ -18,7 +18,30 @@ class HomeScreenProductCard extends StatefulWidget {
   _HomeScreenProductCardState createState() => _HomeScreenProductCardState();
 }
 
-class _HomeScreenProductCardState extends State<HomeScreenProductCard> {
+class _HomeScreenProductCardState extends State<HomeScreenProductCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _imageAnimationController;
+
+  @override
+  void initState() {
+    _imageAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 600),
+    );
+    super.initState();
+
+    _imageAnimationController.addListener(() {
+      setState(() {});
+    });
+    _imageAnimationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _imageAnimationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -114,13 +137,18 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset(widget.product.productImages[0]).p(12),
+                  Transform.rotate(
+                      angle: widget.isCurrentInView
+                          ? (_imageAnimationController.value * 25) * -1
+                          : 0,
+                      child:
+                          Image.asset(widget.product.productImages[0]).p(12)),
                   Positioned(
                     right: 12,
                     top: 12,
                     child: SizedBox(
-                      height: 30,
-                      width: 30,
+                      height: _imageAnimationController.value * 30,
+                      width: _imageAnimationController.value * 30,
                       child: TextButton(
                         style: ButtonStyle(
                             padding: MaterialStateProperty.all(
@@ -133,10 +161,10 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard> {
                             elevation: MaterialStateProperty.all(8),
                             shadowColor:
                                 MaterialStateProperty.all(Colors.pink)),
-                        child: const Center(
+                        child: Center(
                           child: Icon(
                             Icons.favorite,
-                            size: 20,
+                            size: _imageAnimationController.value * 20,
                             color: Colors.white,
                           ),
                         ),
