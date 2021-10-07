@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
           boxShadow: [
             BoxShadow(
                 color: Colors.grey.withOpacity(0.3),
-                offset: Offset(0, 50),
+                offset: const Offset(0, 50),
                 spreadRadius: 2,
                 blurRadius: 124),
           ]),
@@ -222,6 +222,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 blurRadius: 24)
           ]),
       child: InkWell(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         onTap: () {
           setState(() {
             _selectedCategory = index;

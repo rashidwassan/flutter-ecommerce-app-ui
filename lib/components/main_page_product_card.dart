@@ -2,6 +2,8 @@ import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
 import 'package:ecommerce_app_isaatech/constants/images.dart';
 import 'package:ecommerce_app_isaatech/models/product.dart';
+import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
+import 'package:ecommerce_app_isaatech/screens/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -71,6 +73,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                     child: widget.product.name.text
                         .size(19)
                         .semiBold
+                        .maxLines(2)
                         .softWrap(true)
                         .make(),
                   ),
@@ -108,8 +111,8 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                   ),
                   const Spacer(),
                   SizedBox(
-                    height: 35,
-                    width: 35,
+                    height: _imageAnimationController.value * 32,
+                    width: _imageAnimationController.value * 32,
                     child: RoundedAddButton(
                       onPressed: () {},
                     ),
@@ -121,58 +124,62 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
         ),
         AspectRatio(
           aspectRatio: 1,
-          child: Container(
-            decoration: BoxDecoration(
-                color: widget.product.colorAccent,
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.shade200,
-                      offset: const Offset(0, 12),
-                      spreadRadius: 1,
-                      blurRadius: 12),
-                ],
-                borderRadius: BorderRadius.circular(24)),
-            margin: const EdgeInsets.only(left: 25, right: 25, top: 24),
-            child: Center(
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Transform.rotate(
-                      angle: widget.isCurrentInView
-                          ? (_imageAnimationController.value * 25) * -1
-                          : 0,
-                      child:
-                          Image.asset(widget.product.productImages[0]).p(12)),
-                  Positioned(
-                    right: 12,
-                    top: 12,
-                    child: SizedBox(
-                      height: _imageAnimationController.value * 30,
-                      width: _imageAnimationController.value * 30,
-                      child: TextButton(
-                        style: ButtonStyle(
-                            padding: MaterialStateProperty.all(
-                                const EdgeInsets.all(0)),
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(80))),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.pink),
-                            elevation: MaterialStateProperty.all(8),
-                            shadowColor:
-                                MaterialStateProperty.all(Colors.pink)),
-                        child: Center(
-                          child: Icon(
-                            Icons.favorite,
-                            size: _imageAnimationController.value * 20,
-                            color: Colors.white,
+          child: GestureDetector(
+            onTap: () => Navigator.of(context)
+                .pushNamed(ProductPage.id, arguments: widget.product),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: widget.product.colorAccent,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade200,
+                        offset: const Offset(0, 12),
+                        spreadRadius: 1,
+                        blurRadius: 12),
+                  ],
+                  borderRadius: BorderRadius.circular(24)),
+              margin: const EdgeInsets.only(left: 25, right: 25, top: 24),
+              child: Center(
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Transform.rotate(
+                        angle: widget.isCurrentInView
+                            ? (_imageAnimationController.value * 25) * -1
+                            : 0,
+                        child:
+                            Image.asset(widget.product.productImages[0]).p(12)),
+                    Positioned(
+                      right: 12,
+                      top: 12,
+                      child: SizedBox(
+                        height: _imageAnimationController.value * 30,
+                        width: _imageAnimationController.value * 30,
+                        child: TextButton(
+                          style: ButtonStyle(
+                              padding: MaterialStateProperty.all(
+                                  const EdgeInsets.all(0)),
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(80))),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.pink),
+                              elevation: MaterialStateProperty.all(8),
+                              shadowColor:
+                                  MaterialStateProperty.all(Colors.pink)),
+                          child: Center(
+                            child: Icon(
+                              Icons.favorite,
+                              size: _imageAnimationController.value * 20,
+                              color: Colors.white,
+                            ),
                           ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),

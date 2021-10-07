@@ -1,6 +1,7 @@
 import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
 import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
 import 'package:ecommerce_app_isaatech/screens/login.dart';
+import 'package:ecommerce_app_isaatech/screens/product_page.dart';
 import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:ecommerce_app_isaatech/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +60,7 @@ class EcommerceAppIsaatech extends StatelessWidget {
         MainScreen.id: (context) => MainScreen(
               child: Container(),
             ),
+        ProductPage.id: (context) => const ProductPage(),
       },
       initialRoute: SplashScreen.id,
     );
