@@ -1,44 +1,13 @@
-import 'package:ecommerce_app_isaatech/components/buttons.dart';
-import 'package:ecommerce_app_isaatech/components/main_page_product_card.dart';
-import 'package:ecommerce_app_isaatech/constants/colors.dart';
-import 'package:ecommerce_app_isaatech/constants/images.dart';
-import 'package:ecommerce_app_isaatech/models/product.dart';
+import '/components/buttons.dart';
+import '/components/main_page_product_card.dart';
+import '/constants/colors.dart';
+import '/constants/dummy_data.dart';
+import '/constants/images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-List<Product> products = [
-  Product(
-      name: 'Air Jordan 1 Mid',
-      brand: 'nike',
-      description:
-          'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
-      price: 115,
-      rating: 5,
-      colorAccent: Colors.red.shade100,
-      productImages: [Images.sh1, Images.sh2]),
-  Product(
-      name: 'Nike High Run',
-      brand: 'nike',
-      description:
-          'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
-      price: 235,
-      rating: 5,
-      colorAccent: Colors.blue.shade200,
-      productImages: [Images.sh2, Images.sh3]),
-  Product(
-      name: 'Random Shoe',
-      brand: 'adidas',
-      description:
-          'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
-      price: 80,
-      rating: 5,
-      colorAccent: Colors.yellow.shade100,
-      productImages: [Images.sh3, Images.sh2]),
-];
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

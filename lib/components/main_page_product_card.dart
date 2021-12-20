@@ -1,11 +1,8 @@
 import 'package:ecommerce_app_isaatech/components/buttons.dart';
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
-import 'package:ecommerce_app_isaatech/constants/images.dart';
 import 'package:ecommerce_app_isaatech/models/product.dart';
-import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
 import 'package:ecommerce_app_isaatech/screens/product_page.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreenProductCard extends StatefulWidget {
