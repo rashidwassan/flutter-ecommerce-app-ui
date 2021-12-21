@@ -62,7 +62,6 @@ class PrimaryShadowedButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        height: 55,
         margin: const EdgeInsets.all(0),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius),
@@ -78,6 +77,7 @@ class PrimaryShadowedButton extends StatelessWidget {
                   blurRadius: 8)
             ]),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             child,
           ],

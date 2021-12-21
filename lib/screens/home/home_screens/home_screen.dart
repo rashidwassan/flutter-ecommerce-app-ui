@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       children: [
         const SearchBar(),
+        8.heightBox,
         const CategoriesCatalog(),
         const ProductPageView(),
         12.heightBox,
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         12.heightBox,
         const PopularProductCard(),
       ],
-    ).py(16);
+    ).py(8);
   }
 }
 
@@ -154,7 +155,7 @@ class SearchBar extends StatelessWidget {
       children: [
         Flexible(
           child: Container(
-            height: 50,
+            height: 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Colors.grey.shade100,
@@ -180,13 +181,14 @@ class SearchBar extends StatelessWidget {
         ),
         16.widthBox,
         SizedBox(
-          height: 50,
-          width: 50,
+          height: 40,
+          width: 40,
           child: PrimaryShadowedButton(
             onPressed: () {},
-            child: Icon(FontAwesomeIcons.slidersH,
-                    size: 18, color: Theme.of(context).colorScheme.surface)
-                .px(16),
+            child: Center(
+              child: Icon(FontAwesomeIcons.slidersH,
+                  size: 18, color: Theme.of(context).colorScheme.surface),
+            ),
             borderRadius: 12,
             color: Colors.black,
           ),
@@ -208,7 +210,7 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: 75,
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
@@ -222,7 +224,7 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
                     )
                   : (_selectedCategory == index)
                       ? SizedBox(
-                          height: 50,
+                          height: 45,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -230,11 +232,10 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
                                   child: Row(
                                     children: [
                                       SizedBox(
-                                          height: 50,
-                                          width: 50,
+                                          height: 45,
+                                          width: 45,
                                           child: WhiteCategoryButton(
-                                            index: index,
-                                            selectedCategory: _selectedCategory,
+                                            updateCategory: () {},
                                           ).p(5)),
                                       Text(
                                         'Sneakers $index',
@@ -246,7 +247,11 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
                                       12.widthBox,
                                     ],
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _selectedCategory = index;
+                                    });
+                                  },
                                   borderRadius: 80,
                                   color:
                                       Theme.of(context).colorScheme.onSurface),
@@ -254,29 +259,28 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
                           ),
                         )
                       : WhiteCategoryButton(
-                          index: index, selectedCategory: _selectedCategory),
+                          updateCategory: () {
+                            setState(() {
+                              _selectedCategory = index;
+                            });
+                          },
+                        ),
             );
           }),
     );
   }
 }
 
-class WhiteCategoryButton extends StatefulWidget {
-  WhiteCategoryButton(
-      {Key? key, required this.index, required this.selectedCategory})
+class WhiteCategoryButton extends StatelessWidget {
+  const WhiteCategoryButton({Key? key, required this.updateCategory})
       : super(key: key);
-  int selectedCategory;
-  final int index;
-  @override
-  _WhiteCategoryButtonState createState() => _WhiteCategoryButtonState();
-}
 
-class _WhiteCategoryButtonState extends State<WhiteCategoryButton> {
+  final Function() updateCategory;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 55,
-      height: 55,
+      width: 45,
+      height: 45,
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           shape: BoxShape.circle,
@@ -289,11 +293,7 @@ class _WhiteCategoryButtonState extends State<WhiteCategoryButton> {
       child: InkWell(
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        onTap: () {
-          setState(() {
-            widget.selectedCategory = widget.index;
-          });
-        },
+        onTap: updateCategory,
         child: SvgPicture.asset(Images.sneakers).p(10),
       ),
     );
