@@ -130,19 +130,20 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                   boxShadow: [
                     BoxShadow(
                         color: Colors.grey.shade200,
-                        offset: const Offset(0, 12),
+                        offset: const Offset(0, 8),
                         spreadRadius: 1,
-                        blurRadius: 12),
+                        blurRadius: 8),
                   ],
                   borderRadius: BorderRadius.circular(24)),
-              margin: const EdgeInsets.only(left: 25, right: 25, top: 24),
+              margin: const EdgeInsets.only(
+                  left: 25, right: 25, top: 24, bottom: 32),
               child: Center(
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
                     Transform.rotate(
                         angle: widget.isCurrentInView
-                            ? (_imageAnimationController.value * 25) * -1
+                            ? (_imageAnimationController.value * 25)
                             : 0,
                         child:
                             Image.asset(widget.product.productImages[0]).p(12)),

@@ -17,15 +17,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedCategory = 1;
-  int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _buildSearchBar(context),
-        _buildCategoriesCatalog(context),
-        _buildProductPageView(),
+        const SearchBar(),
+        const CategoriesCatalog(),
+        const ProductPageView(),
         12.heightBox,
         _buildPopularTitle(),
         12.heightBox,
@@ -106,8 +104,19 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     ).px(24);
   }
+}
 
-  Expanded _buildProductPageView() {
+class ProductPageView extends StatefulWidget {
+  const ProductPageView({Key? key}) : super(key: key);
+
+  @override
+  State<ProductPageView> createState() => _ProductPageViewState();
+}
+
+class _ProductPageViewState extends State<ProductPageView> {
+  int _currentPage = 0;
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
         child: PageView.builder(
             controller: PageController(viewportFraction: 0.60, initialPage: 1),
@@ -124,86 +133,13 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }));
   }
+}
 
-  SizedBox _buildCategoriesCatalog(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: 6,
-          itemBuilder: (ctx, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: (index == 0)
-                  ? const SizedBox(
-                      width: 12,
-                    )
-                  : (_selectedCategory == index)
-                      ? SizedBox(
-                          height: 50,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              PrimaryShadowedButton(
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                              height: 50,
-                                              width: 50,
-                                              child: _buildWhiteCategoryButton(
-                                                  context, index))
-                                          .p(5),
-                                      Text(
-                                        'Sneakers $index',
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
-                                      ).px(8),
-                                      12.widthBox,
-                                    ],
-                                  ),
-                                  onPressed: () {},
-                                  borderRadius: 80,
-                                  color:
-                                      Theme.of(context).colorScheme.onSurface),
-                            ],
-                          ),
-                        )
-                      : _buildWhiteCategoryButton(context, index),
-            );
-          }),
-    );
-  }
+class SearchBar extends StatelessWidget {
+  const SearchBar({Key? key}) : super(key: key);
 
-  Widget _buildWhiteCategoryButton(BuildContext context, int index) {
-    return Container(
-      width: 55,
-      height: 55,
-      decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 1,
-                blurRadius: 24)
-          ]),
-      child: InkWell(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        onTap: () {
-          setState(() {
-            _selectedCategory = index;
-          });
-        },
-        child: SvgPicture.asset(Images.sneakers).p(10),
-      ),
-    );
-  }
-
-  Padding _buildSearchBar(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         Flexible(
@@ -247,5 +183,109 @@ class _HomeScreenState extends State<HomeScreen> {
         )
       ],
     ).px(24);
+  }
+}
+
+class CategoriesCatalog extends StatefulWidget {
+  const CategoriesCatalog({Key? key}) : super(key: key);
+
+  @override
+  _CategoriesCatalogState createState() => _CategoriesCatalogState();
+}
+
+class _CategoriesCatalogState extends State<CategoriesCatalog> {
+  int _selectedCategory = 1;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: 6,
+          itemBuilder: (ctx, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: (index == 0)
+                  ? const SizedBox(
+                      width: 12,
+                    )
+                  : (_selectedCategory == index)
+                      ? SizedBox(
+                          height: 50,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              PrimaryShadowedButton(
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: WhiteCategoryButton(
+                                            index: index,
+                                            selectedCategory: _selectedCategory,
+                                          ).p(5)),
+                                      Text(
+                                        'Sneakers $index',
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500),
+                                      ).px(8),
+                                      12.widthBox,
+                                    ],
+                                  ),
+                                  onPressed: () {},
+                                  borderRadius: 80,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface),
+                            ],
+                          ),
+                        )
+                      : WhiteCategoryButton(
+                          index: index, selectedCategory: _selectedCategory),
+            );
+          }),
+    );
+  }
+}
+
+class WhiteCategoryButton extends StatefulWidget {
+  WhiteCategoryButton(
+      {Key? key, required this.index, required this.selectedCategory})
+      : super(key: key);
+  int selectedCategory;
+  final int index;
+  @override
+  _WhiteCategoryButtonState createState() => _WhiteCategoryButtonState();
+}
+
+class _WhiteCategoryButtonState extends State<WhiteCategoryButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 55,
+      height: 55,
+      decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.3),
+                spreadRadius: 1,
+                blurRadius: 24)
+          ]),
+      child: InkWell(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onTap: () {
+          setState(() {
+            widget.selectedCategory = widget.index;
+          });
+        },
+        child: SvgPicture.asset(Images.sneakers).p(10),
+      ),
+    );
   }
 }
