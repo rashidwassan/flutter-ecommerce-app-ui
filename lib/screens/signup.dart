@@ -92,9 +92,11 @@ class _SignUpScreenState extends State<SignUpScreen>
                   prefixIcon: CupertinoIcons.phone_fill,
                 ),
                 const Spacer(),
-                buildSignInGradientButtonRow(context, 'Create', () {
-                  Navigator.of(context).pushNamed(MainScreen.id);
-                }),
+                AuthButton(
+                    text: 'Create',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(MainScreen.id);
+                    }),
                 const Spacer(),
                 Text('Or create account using social media',
                     style: TextStyle(

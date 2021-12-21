@@ -1,48 +1,46 @@
+import 'package:ecommerce_app_isaatech/constants/colors.dart';
+import 'package:ecommerce_app_isaatech/constants/images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lottie/lottie.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-Row buildSignInGradientButtonRow(
-    BuildContext context, String text, Function() onPressed) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Text(text,
-          style: Theme.of(context).textTheme.headline4!.copyWith(
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.onBackground)),
-      16.widthBox,
-      Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(500),
-          gradient: RadialGradient(
-            colors: [
-              Theme.of(context).colorScheme.background,
-              Theme.of(context).colorScheme.primaryVariant,
-            ],
-            center: Alignment.topLeft,
-            radius: 1.5,
-          ),
-        ),
-        child: SizedBox(
-          width: 65,
-          height: 45,
+class AuthButton extends StatelessWidget {
+  const AuthButton({Key? key, required this.text, required this.onPressed})
+      : super(key: key);
+
+  final String text;
+  final Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(text,
+            style: Theme.of(context).textTheme.headline4!.copyWith(
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).colorScheme.onBackground)),
+        SizedBox(
           child: MaterialButton(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(500)),
+            splashColor: CustomColors.customGrey,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(80)),
             padding: const EdgeInsets.all(0),
             onPressed: onPressed,
-            child: Icon(
-              Icons.arrow_forward,
-              size: 30,
-              color: Theme.of(context).colorScheme.background,
-            ),
+            child: Transform.rotate(
+                angle: 4.71239,
+                child: LottieBuilder.asset(
+                  Images.proceed,
+                  height: 80,
+                  frameRate: FrameRate(60),
+                )),
           ),
         ),
-      ),
-    ],
-  );
+      ],
+    );
+  }
 }
 
 class PrimaryShadowedButton extends StatelessWidget {

@@ -5,6 +5,7 @@ class Images {
 
   // anims
   static const String splashAnim = 'assets/anims/splash_anim.json';
+  static const String proceed = 'assets/anims/proceed.json';
 
   // images
   static const String loginBg = 'assets/images/login_bg.png';

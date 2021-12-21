@@ -68,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen>
               children: [
                 double.infinity.widthBox,
                 const Spacer(),
+                const Spacer(),
                 _buildTitleText(context),
                 const Spacer(),
                 const PrimaryTextField(
@@ -95,9 +96,11 @@ class _LoginScreenState extends State<LoginScreen>
                   ],
                 ),
                 const Spacer(),
-                buildSignInGradientButtonRow(context, 'Sign In', () {
-                  Navigator.of(context).pushNamed(MainScreen.id);
-                }),
+                AuthButton(
+                    text: 'Sign In',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(MainScreen.id);
+                    }),
                 const Spacer(),
                 RichText(
                   text: TextSpan(children: [
