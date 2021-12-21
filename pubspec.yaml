@@ -15,6 +15,7 @@ dependencies:
   flutter_svg: ^0.22.0
   font_awesome_flutter: ^9.1.0
   google_fonts: ^2.1.0
+  lottie: ^1.2.1
   velocity_x: ^3.3.0
 
 dev_dependencies:
@@ -29,6 +30,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/anims/
   fonts:
     - family: Gilroy
       fonts:

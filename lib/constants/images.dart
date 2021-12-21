@@ -3,6 +3,9 @@ class Images {
 
   static const String logo = 'assets/icons/logo.png';
 
+  // anims
+  static const String splashAnim = 'assets/anims/splash_anim.json';
+
   // images
   static const String loginBg = 'assets/images/login_bg.png';
   static const String sh1 = 'assets/images/sh1.png';
