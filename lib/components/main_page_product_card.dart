@@ -128,11 +128,16 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
               decoration: BoxDecoration(
                   color: widget.product.colorAccent,
                   boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.shade200,
-                        offset: const Offset(0, 8),
-                        spreadRadius: 1,
-                        blurRadius: 8),
+                    widget.isCurrentInView
+                        ? BoxShadow(
+                            color: Colors.grey.shade200,
+                            offset: const Offset(0, 8),
+                            spreadRadius: 1,
+                            blurRadius: 8)
+                        : const BoxShadow(
+                            color: Colors.transparent,
+                            offset: Offset(0, 8),
+                          ),
                   ],
                   borderRadius: BorderRadius.circular(24)),
               margin: const EdgeInsets.only(
@@ -143,7 +148,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                   children: [
                     Transform.rotate(
                         angle: widget.isCurrentInView
-                            ? (_imageAnimationController.value * 25)
+                            ? (_imageAnimationController.value * 0.5)
                             : 0,
                         child:
                             Image.asset(widget.product.productImages[0]).p(12)),

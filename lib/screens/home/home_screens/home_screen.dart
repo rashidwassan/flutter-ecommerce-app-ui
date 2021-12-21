@@ -113,7 +113,7 @@ class PopularProductCard extends StatelessWidget {
           12.widthBox,
         ],
       ).p(8),
-    ).px(24);
+    ).px(16);
   }
 }
 
