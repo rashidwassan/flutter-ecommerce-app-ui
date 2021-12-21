@@ -25,14 +25,35 @@ class _HomeScreenState extends State<HomeScreen> {
         const CategoriesCatalog(),
         const ProductPageView(),
         12.heightBox,
-        _buildPopularTitle(),
+        const MostPopularTitleText(),
         12.heightBox,
-        _buildPopularProductCard(),
+        const PopularProductCard(),
       ],
     ).py(16);
   }
+}
 
-  Widget _buildPopularProductCard() {
+class MostPopularTitleText extends StatelessWidget {
+  const MostPopularTitleText({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        'Most Popular'.text.semiBold.xl2.make(),
+        GestureDetector(
+            onTap: () {}, child: 'View all'.text.underline.semiBold.make()),
+      ],
+    ).px(24);
+  }
+}
+
+class PopularProductCard extends StatelessWidget {
+  const PopularProductCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -91,17 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
           12.widthBox,
         ],
       ).p(8),
-    ).px(24);
-  }
-
-  Widget _buildPopularTitle() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        'Most Popular'.text.semiBold.xl2.make(),
-        GestureDetector(
-            onTap: () {}, child: 'View all'.text.underline.semiBold.make()),
-      ],
     ).px(24);
   }
 }
