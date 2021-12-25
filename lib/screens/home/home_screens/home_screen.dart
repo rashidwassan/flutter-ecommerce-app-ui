@@ -1,3 +1,5 @@
+import 'package:ecommerce_app_isaatech/components/rating_widget.dart';
+
 import '/components/buttons.dart';
 import '/components/main_page_product_card.dart';
 import '/constants/colors.dart';
@@ -93,11 +95,15 @@ class PopularProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  '\$80.00'.text.size(14).softWrap(true).make(),
+                  '\$80.00'
+                      .text
+                      .sm
+                      .semiBold
+                      .color(Colors.grey.shade700)
+                      .softWrap(true)
+                      .make(),
                   16.widthBox,
-                  const Icon(Icons.star, color: CustomColors.starColor),
-                  4.widthBox,
-                  '(5.0)'.text.medium.softWrap(true).make(),
+                  const RatingWidget(rating: 5),
                 ],
               ),
             ],
@@ -210,7 +216,7 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 75,
+      height: 80,
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
