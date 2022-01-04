@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(
             icon: const Icon(
               FontAwesomeIcons.shoppingBag,
-              size: 27,
+              size: 26,
             ),
             onPressed: () {},
           ),

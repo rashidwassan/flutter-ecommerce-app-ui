@@ -103,7 +103,7 @@ class RoundedAddButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         child: Icon(
           FontAwesomeIcons.plus,
-          size: 18,
+          size: 16,
           color: Theme.of(context).colorScheme.surface,
         ).centered(),
         onPressed: onPressed,
