@@ -70,7 +70,6 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
           children: [
             GestureDetector(
               onTap: () {
-                print(widget.product);
                 Navigator.of(context).pushNamed(
                   ProductPage.id,
                   arguments: widget.product,

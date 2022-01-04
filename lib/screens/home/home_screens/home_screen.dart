@@ -230,7 +230,7 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
                     )
                   : (_selectedCategory == index)
                       ? SizedBox(
-                          height: 45,
+                          height: 47,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -238,8 +238,8 @@ class _CategoriesCatalogState extends State<CategoriesCatalog> {
                                   child: Row(
                                     children: [
                                       SizedBox(
-                                          height: 45,
-                                          width: 45,
+                                          height: 47,
+                                          width: 47,
                                           child: WhiteCategoryButton(
                                             updateCategory: () {},
                                           ).p(5)),
@@ -285,8 +285,8 @@ class WhiteCategoryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 45,
-      height: 45,
+      width: 47,
+      height: 47,
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
           shape: BoxShape.circle,
