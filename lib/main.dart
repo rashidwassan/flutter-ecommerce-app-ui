@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_isaatech/route_generator.dart';
 import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
 import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
 import 'package:ecommerce_app_isaatech/screens/login.dart';
@@ -32,7 +33,7 @@ class EcommerceAppIsaatech extends StatelessWidget {
               .textTheme
               .headline5!
               .copyWith(fontWeight: FontWeight.bold),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           iconTheme: IconThemeData(
             color: Theme.of(context).colorScheme.onSurface,
           ),
@@ -53,16 +54,8 @@ class EcommerceAppIsaatech extends StatelessWidget {
           onError: Colors.white,
         ),
       ),
-      routes: {
-        SplashScreen.id: (context) => const SplashScreen(),
-        LoginScreen.id: (context) => const LoginScreen(),
-        SignUpScreen.id: (context) => const SignUpScreen(),
-        MainScreen.id: (context) => MainScreen(
-              child: Container(),
-            ),
-        ProductPage.id: (context) => const ProductPage(),
-      },
       initialRoute: SplashScreen.id,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

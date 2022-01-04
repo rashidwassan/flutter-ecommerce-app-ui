@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
+import '../components/buttons.dart';
+import '../models/product.dart';
 
 class ProductPage extends StatefulWidget {
   static const String id = '/ProductPage';
@@ -11,6 +14,17 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final product = ModalRoute.of(context)!.settings.arguments;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Shoes'),
+        actions: [
+          const BagButton(
+            numberOfItemsPurchased: 3,
+          ),
+          16.widthBox,
+        ],
+      ),
+    );
   }
 }
