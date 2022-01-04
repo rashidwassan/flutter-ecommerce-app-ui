@@ -76,7 +76,7 @@ class BagButton extends StatelessWidget {
         IconButton(
           icon: Image.asset(
             Images.shoppingBag,
-            height: 27,
+            height: 28,
           ),
           onPressed: () {},
         ),
