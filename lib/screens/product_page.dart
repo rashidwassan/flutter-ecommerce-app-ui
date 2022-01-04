@@ -3,21 +3,15 @@ import 'package:velocity_x/velocity_x.dart';
 import '../components/buttons.dart';
 import '../models/product.dart';
 
-class ProductPage extends StatefulWidget {
+class ProductPage extends StatelessWidget {
   static const String id = '/ProductPage';
-  const ProductPage({Key? key}) : super(key: key);
-
-  @override
-  _ProductPageState createState() => _ProductPageState();
-}
-
-class _ProductPageState extends State<ProductPage> {
+  const ProductPage({required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
-    final product = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Shoes'),
+        title: Text(product.name),
         actions: [
           const BagButton(
             numberOfItemsPurchased: 3,

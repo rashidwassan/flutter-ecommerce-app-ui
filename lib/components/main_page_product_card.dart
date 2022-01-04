@@ -69,8 +69,13 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             GestureDetector(
-              onTap: () => Navigator.of(context)
-                  .pushNamed(ProductPage.id, arguments: widget.product),
+              onTap: () {
+                print(widget.product);
+                Navigator.of(context).pushNamed(
+                  ProductPage.id,
+                  arguments: widget.product,
+                );
+              },
               child: Container(
                 decoration: BoxDecoration(
                     color: widget.product.colorAccent,
