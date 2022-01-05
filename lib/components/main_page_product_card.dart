@@ -77,7 +77,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
               },
               child: Container(
                 decoration: BoxDecoration(
-                    color: widget.product.colorAccent,
+                    color: widget.product.productColors[0],
                     boxShadow: [
                       widget.isCurrentInView
                           ? BoxShadow(

@@ -6,7 +6,7 @@ class Product {
   String description;
   double price;
   double rating;
-  Color colorAccent;
+  List<Color> productColors;
   List<String> productImages;
 
   Product(
@@ -15,6 +15,6 @@ class Product {
       required this.description,
       required this.price,
       required this.rating,
-      required this.colorAccent,
+      required this.productColors,
       required this.productImages});
 }
