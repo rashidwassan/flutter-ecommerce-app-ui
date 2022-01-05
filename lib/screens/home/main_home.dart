@@ -60,10 +60,11 @@ class _UserDashboardState extends State<UserDashboard>
 
   void toggleDrawer() {
     setState(() {
-      if (isCollapsed)
+      if (isCollapsed) {
         _controller.forward();
-      else
+      } else {
         _controller.reverse();
+      }
 
       isCollapsed = !isCollapsed;
     });
@@ -275,7 +276,7 @@ class _UserDashboardState extends State<UserDashboard>
                     // ),
                     16.widthBox,
                     Text(
-                      'Organization Settings',
+                      'Report a complaint',
                       style: dashboardButtonText.copyWith(fontSize: 14),
                     ),
                   ],
@@ -395,7 +396,11 @@ class _DashboardState extends State<Dashboard> {
                             MaterialButton(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8)),
-                              onPressed: () => widget.toggleDrawer,
+                              onPressed: () {
+                                setState(() {
+                                  widget.toggleDrawer();
+                                });
+                              },
                               highlightColor: CustomColors.customGrey,
                               child: Text(
                                 'Back to browsing',
