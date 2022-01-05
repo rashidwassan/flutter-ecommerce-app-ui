@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                 AuthButton(
                     text: 'Create',
                     onPressed: () {
-                      Navigator.of(context).pushNamed(MainScreen.id);
+                      Navigator.of(context).pushNamed(UserDashboard.id);
                     }),
                 const Spacer(),
                 Text('Or create account using social media',

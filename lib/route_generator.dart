@@ -23,11 +23,9 @@ class RouteGenerator {
             builder: (context) => ProductPage(
                   product: args,
                 ));
-      case MainScreen.id:
-        return MaterialPageRoute(
-            builder: (context) => MainScreen(
-                  child: Container(),
-                ));
+
+      case UserDashboard.id:
+        return MaterialPageRoute(builder: (context) => UserDashboard());
 
       default:
         return MaterialPageRoute(builder: (context) => const SplashScreen());

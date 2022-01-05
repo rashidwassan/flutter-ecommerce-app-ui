@@ -21,4 +21,5 @@ class Images {
   static const String cartIcon = 'assets/icons/cart.png';
   static const String shoppingBag = 'assets/icons/shopping_bag.png';
   static const String sneakers = 'assets/icons/sneakers.svg';
+  static const String avatar = 'assets/icons/avatar.png';
 }

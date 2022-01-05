@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen>
                 AuthButton(
                     text: 'Sign In',
                     onPressed: () {
-                      Navigator.of(context).pushNamed(MainScreen.id);
+                      Navigator.of(context).pushNamed(UserDashboard.id);
                     }),
                 const Spacer(),
                 RichText(
