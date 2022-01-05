@@ -59,7 +59,7 @@ class PrimaryShadowedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPressed,
       child: Container(
         margin: const EdgeInsets.all(0),
@@ -83,6 +83,36 @@ class PrimaryShadowedButton extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class FavouriteButton extends StatelessWidget {
+  const FavouriteButton(
+      {Key? key, required this.iconSize, required this.onPressed})
+      : super(key: key);
+
+  final double iconSize;
+  final Function() onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: ButtonStyle(
+          padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(80))),
+          backgroundColor: MaterialStateProperty.all(Colors.pink),
+          elevation: MaterialStateProperty.all(4),
+          shadowColor: MaterialStateProperty.all(Colors.pink)),
+      child: Center(
+        child: Icon(
+          Icons.favorite,
+          size: iconSize,
+          color: Colors.white,
+        ),
+      ),
+      onPressed: onPressed,
     );
   }
 }

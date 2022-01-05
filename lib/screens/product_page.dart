@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../components/buttons.dart';
@@ -61,7 +62,7 @@ class _ProductPageState extends State<ProductPage>
             alignment: Alignment.bottomCenter,
             children: [
               AspectRatio(
-                aspectRatio: 0.8,
+                aspectRatio: 0.75,
                 child: Container(
                     padding:
                         const EdgeInsets.only(left: 12, right: 12, bottom: 12),
@@ -104,26 +105,8 @@ class _ProductPageState extends State<ProductPage>
                           child: SizedBox(
                             height: _imageAnimationController.value * 35,
                             width: _imageAnimationController.value * 35,
-                            child: TextButton(
-                              style: ButtonStyle(
-                                  padding: MaterialStateProperty.all(
-                                      const EdgeInsets.all(0)),
-                                  shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(80))),
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.pink),
-                                  elevation: MaterialStateProperty.all(4),
-                                  shadowColor:
-                                      MaterialStateProperty.all(Colors.pink)),
-                              child: Center(
-                                child: Icon(
-                                  Icons.favorite,
-                                  size: _imageAnimationController.value * 24,
-                                  color: Colors.white,
-                                ),
-                              ),
+                            child: FavouriteButton(
+                              iconSize: 24,
                               onPressed: () {},
                             ),
                           ),
@@ -145,26 +128,52 @@ class _ProductPageState extends State<ProductPage>
                                 .softWrap(true)
                                 .make(),
                           ),
+                          SizedBox(
+                            height: 40,
+                            width: 90,
+                            child: PrimaryShadowedButton(
+                              onPressed: () {},
+                              child: '\$${widget.product.price}'
+                                  .text
+                                  .white
+                                  .makeCentered(),
+                              borderRadius: 12,
+                              color: Colors.black,
+                            ),
+                          )
                         ],
                       ),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           ColorSelector(colors: [
                             Colors.orange.shade400,
                             Colors.teal.shade400,
                             Colors.purple.shade400,
                             Colors.blue.shade400
-                          ])
+                          ]),
+                          'Size:'.text.gray500.make(),
+                          8.widthBox,
+                          SizedBox(
+                            height: 32,
+                            width: 32,
+                            child: PrimaryShadowedButton(
+                              child: '9'.text.white.semiBold.makeCentered(),
+                              borderRadius: 500,
+                              color: CustomColors.darkBlue,
+                              onPressed: () {},
+                            ),
+                          )
                         ],
                       ),
                     ],
-                  ).px(24).pOnly(bottom: 28)
+                  ).px(24).pOnly(bottom: 24)
                 ],
               ),
             ],
           )
         ],
-      ).p(24),
+      ).px(24),
     );
   }
 }

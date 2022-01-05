@@ -109,30 +109,12 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                       right: 12,
                       top: 12,
                       child: SizedBox(
-                        height: _imageAnimationController.value * 27,
-                        width: _imageAnimationController.value * 27,
-                        child: TextButton(
-                          style: ButtonStyle(
-                              padding: MaterialStateProperty.all(
-                                  const EdgeInsets.all(0)),
-                              shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(80))),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.pink),
-                              elevation: MaterialStateProperty.all(4),
-                              shadowColor:
-                                  MaterialStateProperty.all(Colors.pink)),
-                          child: Center(
-                            child: Icon(
-                              Icons.favorite,
-                              size: _imageAnimationController.value * 17,
-                              color: Colors.white,
-                            ),
-                          ),
-                          onPressed: () {},
-                        ),
-                      ),
+                          height: _imageAnimationController.value * 27,
+                          width: _imageAnimationController.value * 27,
+                          child: FavouriteButton(
+                            iconSize: _imageAnimationController.value * 17,
+                            onPressed: () {},
+                          )),
                     )
                   ],
                 ),
