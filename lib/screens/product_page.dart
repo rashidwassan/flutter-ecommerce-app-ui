@@ -1,7 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce_app_isaatech/components/rating_widget.dart';
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../components/buttons.dart';
@@ -55,22 +57,68 @@ class _ProductPageState extends State<ProductPage> {
               ],
             ).px(24),
             widget.product.description.text.lg.make().py(12).px(24),
+            const Spacer(),
             Container(
               padding: const EdgeInsets.all(24),
               decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(32),
-                      topRight: Radius.circular(32))),
-              child: Row(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(32),
+                  topRight: Radius.circular(32),
+                ),
+              ),
+              child: Column(
                 children: [
-                  _quantity.text.semiBold.make(),
-                  const Spacer(),
-                  'Total: '.text.lg.make(),
-                  '${widget.product.price * _quantity}'.text.semiBold.make(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 35,
+                        child: IconButton(
+                            padding: const EdgeInsets.all(0),
+                            onPressed: () {
+                              setState(() {
+                                if (_quantity > 1) _quantity -= 1;
+                              });
+                            },
+                            icon: const Icon(
+                              CupertinoIcons.minus_circle,
+                              size: 22,
+                            )),
+                      ),
+                      _quantity.text.xl.semiBold.make(),
+                      SizedBox(
+                        width: 35,
+                        child: IconButton(
+                            padding: const EdgeInsets.all(0),
+                            onPressed: () {
+                              setState(() {
+                                _quantity += 1;
+                              });
+                            },
+                            icon: const Icon(
+                              CupertinoIcons.plus_circle,
+                              size: 22,
+                            )),
+                      ),
+                      const Spacer(),
+                      'Total: '.text.xl.make(),
+                      '\$${widget.product.price * _quantity}'
+                          .text
+                          .semiBold
+                          .xl
+                          .make(),
+                    ],
+                  ).px(8),
+                  24.heightBox,
+                  PrimaryShadowedButton(
+                      child: 'Add to cart'.text.xl2.white.makeCentered().py(16),
+                      onPressed: () {},
+                      borderRadius: 16,
+                      color: Colors.black)
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -231,7 +279,7 @@ class _MainProductPageProductCardState
                         color: CustomColors.darkBlue,
                         onPressed: () {},
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],

@@ -2,7 +2,6 @@ import 'package:ecommerce_app_isaatech/components/rating_widget.dart';
 
 import '/components/buttons.dart';
 import '/components/main_page_product_card.dart';
-import '/constants/colors.dart';
 import '/constants/dummy_data.dart';
 import '/constants/images.dart';
 import 'package:flutter/cupertino.dart';

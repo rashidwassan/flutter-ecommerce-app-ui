@@ -68,6 +68,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Spacer(),
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pushNamed(
@@ -120,61 +121,60 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                 ),
               ),
             ).p(24),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: widget.product.name.text
-                            .size(18)
+            Spacer(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: widget.product.name.text
+                          .size(18)
+                          .semiBold
+                          .maxLines(2)
+                          .softWrap(true)
+                          .make(),
+                    ),
+                    12.widthBox,
+                    RatingWidget(rating: widget.product.rating),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        widget.product.brand
+                            .toUpperCase()
+                            .text
                             .semiBold
-                            .maxLines(2)
+                            .color(Colors.grey)
+                            .softWrap(true)
+                            .make()
+                            .py(4),
+                        '\$${widget.product.price}'
+                            .text
+                            .size(15)
+                            .semiBold
                             .softWrap(true)
                             .make(),
+                      ],
+                    ),
+                    const Spacer(),
+                    SizedBox(
+                      height: _imageAnimationController.value * 30,
+                      width: _imageAnimationController.value * 30,
+                      child: RoundedAddButton(
+                        onPressed: () {},
                       ),
-                      12.widthBox,
-                      RatingWidget(rating: widget.product.rating),
-                    ],
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          widget.product.brand
-                              .toUpperCase()
-                              .text
-                              .semiBold
-                              .color(Colors.grey)
-                              .softWrap(true)
-                              .make()
-                              .py(4),
-                          '\$${widget.product.price}'
-                              .text
-                              .size(15)
-                              .semiBold
-                              .softWrap(true)
-                              .make(),
-                        ],
-                      ),
-                      const Spacer(),
-                      SizedBox(
-                        height: _imageAnimationController.value * 30,
-                        width: _imageAnimationController.value * 30,
-                        child: RoundedAddButton(
-                          onPressed: () {},
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ).px(24).pOnly(bottom: 28),
-            )
+                    )
+                  ],
+                ),
+              ],
+            ).px(24).pOnly(bottom: 28)
           ],
         )
       ],
