@@ -99,7 +99,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                       aspectRatio: 0.9,
                       child: Transform.rotate(
                           angle: widget.isCurrentInView
-                              ? (_imageAnimationController.value * 0.5)
+                              ? (_imageAnimationController.value * -0.5)
                               : 0,
                           child: Image.asset(
                             widget.product.productImages[0],
