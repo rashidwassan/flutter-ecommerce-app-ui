@@ -59,23 +59,26 @@ class PrimaryShadowedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Container(
-        margin: const EdgeInsets.all(0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
-            gradient: const RadialGradient(
-                colors: [Colors.black54, Colors.black],
-                center: Alignment.topLeft,
-                radius: 2),
-            boxShadow: [
-              BoxShadow(
-                  color: color.withOpacity(0.25),
-                  offset: const Offset(3, 2),
-                  spreadRadius: 1,
-                  blurRadius: 8)
-            ]),
+    return Container(
+      margin: const EdgeInsets.all(0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(borderRadius),
+          gradient: const RadialGradient(
+              colors: [Colors.black54, Colors.black],
+              center: Alignment.topLeft,
+              radius: 2),
+          boxShadow: [
+            BoxShadow(
+                color: color.withOpacity(0.25),
+                offset: const Offset(3, 2),
+                spreadRadius: 1,
+                blurRadius: 8)
+          ]),
+      child: MaterialButton(
+        padding: const EdgeInsets.all(0),
+        onPressed: onPressed,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
