@@ -121,7 +121,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                 ),
               ),
             ).p(24),
-            Spacer(),
+            const Spacer(),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
