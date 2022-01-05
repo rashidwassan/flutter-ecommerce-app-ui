@@ -1,10 +1,9 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../components/buttons.dart';
-import '../components/rating_widget.dart';
 import '../models/product.dart';
 
 class ProductPage extends StatefulWidget {
@@ -92,6 +91,7 @@ class _ProductPageState extends State<ProductPage>
                     // margin: const EdgeInsets.only(
                     //     left: 25, right: 25, top: 24, bottom: 32),
                     child: Stack(
+                      alignment: Alignment.bottomCenter,
                       children: [
                         AspectRatio(
                           aspectRatio: 1,
@@ -110,7 +110,22 @@ class _ProductPageState extends State<ProductPage>
                               onPressed: () {},
                             ),
                           ),
-                        )
+                        ),
+                        Positioned(
+                            bottom: 10,
+                            child: DotsIndicator(
+                              dotsCount: 5,
+                              position: 2,
+                              decorator: DotsDecorator(
+                                color: Colors.black12,
+                                spacing: const EdgeInsets.all(5),
+                                size: const Size.square(8.0),
+                                activeColor: Colors.black45,
+                                activeSize: const Size.square(8),
+                                activeShape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0)),
+                              ),
+                            ))
                       ],
                     ),
                   ).p(24),
