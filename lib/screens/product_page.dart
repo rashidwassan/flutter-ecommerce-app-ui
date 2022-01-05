@@ -79,7 +79,7 @@ class _ProductPageState extends State<ProductPage> {
 }
 
 class MainProductPageProductCard extends StatefulWidget {
-  MainProductPageProductCard({
+  const MainProductPageProductCard({
     Key? key,
     required this.product,
   }) : super(key: key);
@@ -93,6 +93,7 @@ class MainProductPageProductCard extends StatefulWidget {
 class _MainProductPageProductCardState
     extends State<MainProductPageProductCard> {
   int _selectedColor = 0;
+  int _selectedImageIndex = 0;
 
   void _updateColor(int index) {
     setState(() {
@@ -137,11 +138,20 @@ class _MainProductPageProductCardState
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: Image.asset(
-                      widget.product.productImages[0],
-                    ).p(16),
+                  SizedBox(
+                    height: 340,
+                    child: PageView.builder(
+                      itemCount: widget.product.productImages.length,
+                      onPageChanged: (newIndex) => setState(() {
+                        _selectedImageIndex = newIndex;
+                      }),
+                      itemBuilder: (context, index) => AspectRatio(
+                        aspectRatio: 1,
+                        child: Image.asset(
+                          widget.product.productImages[_selectedImageIndex],
+                        ).p(24),
+                      ),
+                    ),
                   ),
                   Positioned(
                     right: 12,
@@ -159,7 +169,7 @@ class _MainProductPageProductCardState
                       bottom: 10,
                       child: DotsIndicator(
                         dotsCount: 5,
-                        position: 2,
+                        position: _selectedImageIndex.toDouble(),
                         decorator: DotsDecorator(
                           color: Colors.black12,
                           spacing: const EdgeInsets.all(5),
@@ -242,7 +252,7 @@ class ColorSelector extends StatelessWidget {
       : super(key: key);
   final List<Color> colors;
   final Function(int v) updateContainerColor;
-  final selectedIndex;
+  final int selectedIndex;
   @override
   Widget build(BuildContext context) {
     return Flexible(
