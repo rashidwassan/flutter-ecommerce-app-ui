@@ -133,7 +133,7 @@ class _ProductPageViewState extends State<ProductPageView> {
   int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Flexible(
         child: PageView.builder(
             controller: PageController(viewportFraction: 0.60, initialPage: 1),
             onPageChanged: (v) {
