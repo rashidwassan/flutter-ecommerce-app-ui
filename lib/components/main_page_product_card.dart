@@ -45,7 +45,6 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
   @override
   Widget build(BuildContext context) {
     return Stack(
-      fit: StackFit.expand,
       alignment: Alignment.bottomCenter,
       children: [
         Container(
@@ -68,59 +67,62 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Spacer(),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushNamed(
-                  ProductPage.id,
-                  arguments: widget.product,
-                );
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: widget.product.productColors[0],
-                    boxShadow: [
-                      widget.isCurrentInView
-                          ? BoxShadow(
-                              color: Colors.grey.shade200,
-                              offset: const Offset(0, 8),
-                              spreadRadius: 1,
-                              blurRadius: 8)
-                          : const BoxShadow(
-                              color: Colors.transparent,
-                              offset: Offset(0, 8),
-                            ),
+            const Spacer(),
+            Flexible(
+              flex: 5,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    ProductPage.id,
+                    arguments: widget.product,
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: widget.product.productColors[0],
+                      boxShadow: [
+                        widget.isCurrentInView
+                            ? BoxShadow(
+                                color: Colors.grey.shade200,
+                                offset: const Offset(0, 8),
+                                spreadRadius: 1,
+                                blurRadius: 8)
+                            : const BoxShadow(
+                                color: Colors.transparent,
+                                offset: Offset(0, 8),
+                              ),
+                      ],
+                      borderRadius: BorderRadius.circular(24)),
+                  // margin: const EdgeInsets.only(
+                  //     left: 25, right: 25, top: 24, bottom: 32),
+                  child: Stack(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 0.9,
+                        child: Transform.rotate(
+                            angle: widget.isCurrentInView
+                                ? (_imageAnimationController.value * -0.5)
+                                : 0,
+                            child: Image.asset(
+                              widget.product.productImages[0],
+                            ).p(16)),
+                      ),
+                      Positioned(
+                        right: 12,
+                        top: 12,
+                        child: SizedBox(
+                            height: _imageAnimationController.value * 27,
+                            width: _imageAnimationController.value * 27,
+                            child: FavouriteButton(
+                              iconSize: _imageAnimationController.value * 17,
+                              onPressed: () {},
+                            )),
+                      )
                     ],
-                    borderRadius: BorderRadius.circular(24)),
-                // margin: const EdgeInsets.only(
-                //     left: 25, right: 25, top: 24, bottom: 32),
-                child: Stack(
-                  children: [
-                    AspectRatio(
-                      aspectRatio: 0.9,
-                      child: Transform.rotate(
-                          angle: widget.isCurrentInView
-                              ? (_imageAnimationController.value * -0.5)
-                              : 0,
-                          child: Image.asset(
-                            widget.product.productImages[0],
-                          ).p(16)),
-                    ),
-                    Positioned(
-                      right: 12,
-                      top: 12,
-                      child: SizedBox(
-                          height: _imageAnimationController.value * 27,
-                          width: _imageAnimationController.value * 27,
-                          child: FavouriteButton(
-                            iconSize: _imageAnimationController.value * 17,
-                            onPressed: () {},
-                          )),
-                    )
-                  ],
+                  ),
                 ),
-              ),
-            ).p(24),
+              ).p(24),
+            ),
             const Spacer(),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

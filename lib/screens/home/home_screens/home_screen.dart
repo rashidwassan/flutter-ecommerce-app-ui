@@ -133,21 +133,22 @@ class _ProductPageViewState extends State<ProductPageView> {
   int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-        child: PageView.builder(
-            controller: PageController(viewportFraction: 0.60, initialPage: 1),
-            onPageChanged: (v) {
-              setState(() {
-                _currentPage = v;
-              });
-            },
-            itemCount: products.length,
-            itemBuilder: (context, index) {
-              return HomeScreenProductCard(
-                product: products[index],
-                isCurrentInView: _currentPage == index,
-              );
-            }));
+    return Expanded(
+      child: PageView.builder(
+          controller: PageController(viewportFraction: 0.60, initialPage: 1),
+          onPageChanged: (v) {
+            setState(() {
+              _currentPage = v;
+            });
+          },
+          itemCount: products.length,
+          itemBuilder: (context, index) {
+            return HomeScreenProductCard(
+              product: products[index],
+              isCurrentInView: _currentPage == index,
+            );
+          }),
+    );
   }
 }
 
