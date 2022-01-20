@@ -1,12 +1,6 @@
 import 'package:ecommerce_app_isaatech/route_generator.dart';
-import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
-import 'package:ecommerce_app_isaatech/screens/home/main_home.dart';
-import 'package:ecommerce_app_isaatech/screens/login.dart';
-import 'package:ecommerce_app_isaatech/screens/product_page.dart';
-import 'package:ecommerce_app_isaatech/screens/signup.dart';
 import 'package:ecommerce_app_isaatech/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const EcommerceAppIsaatech());
