@@ -1,6 +1,6 @@
-import '/constants/images.dart';
 import 'package:flutter/material.dart';
 
+import '/constants/images.dart';
 import '../models/product.dart';
 
 List<Product> products = [
@@ -25,7 +25,7 @@ List<Product> products = [
         Images.sh6,
       ]),
   Product(
-      name: 'Nike High Run',
+      name: 'Nike High Run Pro',
       brand: 'nike',
       description:
           'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',
@@ -45,7 +45,7 @@ List<Product> products = [
         Images.sh6,
       ]),
   Product(
-      name: 'Random Shoe',
+      name: 'Random Color Shoe',
       brand: 'adidas',
       description:
           'The Air Jordan 1 Mid shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of the greatness.',

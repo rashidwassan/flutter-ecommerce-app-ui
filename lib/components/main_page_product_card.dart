@@ -121,9 +121,8 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                     ],
                   ),
                 ),
-              ).p(24),
+              ).p(20),
             ),
-            const Spacer(),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -133,7 +132,7 @@ class _HomeScreenProductCardState extends State<HomeScreenProductCard>
                   children: [
                     Expanded(
                       child: widget.product.name.text
-                          .size(18)
+                          .size(21)
                           .semiBold
                           .maxLines(2)
                           .softWrap(true)

@@ -1,14 +1,14 @@
 import 'package:ecommerce_app_isaatech/components/rating_widget.dart';
-
-import '/components/buttons.dart';
-import '/components/main_page_product_card.dart';
-import '/constants/dummy_data.dart';
-import '/constants/images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '/components/buttons.dart';
+import '/components/main_page_product_card.dart';
+import '/constants/dummy_data.dart';
+import '/constants/images.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -133,7 +133,7 @@ class _ProductPageViewState extends State<ProductPageView> {
   int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Flexible(
       child: PageView.builder(
           controller: PageController(viewportFraction: 0.60, initialPage: 1),
           onPageChanged: (v) {

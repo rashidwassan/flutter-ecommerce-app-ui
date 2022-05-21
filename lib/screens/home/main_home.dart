@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
-
 import 'package:ecommerce_app_isaatech/constants/colors.dart';
 import 'package:ecommerce_app_isaatech/screens/home/home_screens/home_screen.dart';
 import 'package:ecommerce_app_isaatech/screens/profile_screen.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../components/bottom_bar_custom.dart';
 import '../../components/buttons.dart';
@@ -49,7 +48,7 @@ class _UserDashboardState extends State<UserDashboard>
         toggleDrawer: toggleDrawer,
       );
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) {});
+    WidgetsBinding.instance.addPostFrameCallback((_) {});
   }
 
   @override
