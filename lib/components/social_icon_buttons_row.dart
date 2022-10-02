@@ -52,7 +52,13 @@ class SocialButtonWithShadow extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
-          elevation: MaterialStateProperty.all(12),
+          elevation: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.pressed)) {
+              return 0;
+            } else {
+              return 8;
+            }
+          }),
           shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))),
           backgroundColor: MaterialStateProperty.all(color),
